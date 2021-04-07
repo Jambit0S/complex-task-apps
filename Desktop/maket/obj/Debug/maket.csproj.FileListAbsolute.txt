@@ -1,0 +1,12 @@
+C:\Users\MAGI\source\repos\maket\bin\Debug\maket.exe.config
+C:\Users\MAGI\source\repos\maket\bin\Debug\maket.exe
+C:\Users\MAGI\source\repos\maket\bin\Debug\maket.pdb
+C:\Users\MAGI\source\repos\maket\obj\Debug\maket.csprojAssemblyReference.cache
+C:\Users\MAGI\source\repos\maket\obj\Debug\maket.Form1.resources
+C:\Users\MAGI\source\repos\maket\obj\Debug\maket.Properties.Resources.resources
+C:\Users\MAGI\source\repos\maket\obj\Debug\maket.csproj.GenerateResource.cache
+C:\Users\MAGI\source\repos\maket\obj\Debug\maket.csproj.CoreCompileInputs.cache
+C:\Users\MAGI\source\repos\maket\obj\Debug\maket.exe
+C:\Users\MAGI\source\repos\maket\obj\Debug\maket.pdb
+C:\Users\MAGI\source\repos\maket\obj\Debug\maket.FormAddQue.resources
+C:\Users\MAGI\source\repos\maket\obj\Debug\maket.FormAddTheme.resources
