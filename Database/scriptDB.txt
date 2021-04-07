@@ -1,0 +1,85 @@
+CREATE DATABASE "Complexdb";
+
+CREATE TABLE public."Group"
+(
+    id bigint NOT NULL,
+    "Group_name" character varying(25) COLLATE pg_catalog."default" NOT NULL,
+    "IDs_theme" character varying(1000) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "Group_pkey" PRIMARY KEY (id)
+);
+
+CREATE TABLE public."Question"
+(
+    id bigint NOT NULL,
+    "QText" text COLLATE pg_catalog."default" NOT NULL,
+    "CorAnswers" text COLLATE pg_catalog."default" NOT NULL,
+    "WrAnswers" text COLLATE pg_catalog."default" NOT NULL,
+    "IdTheme" bigint NOT NULL,
+    CONSTRAINT "Question_pkey" PRIMARY KEY (id),
+    CONSTRAINT fk_question_theme FOREIGN KEY ("IdTheme")
+        REFERENCES public."Theme" (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
+
+CREATE TABLE public."Stud_answers"
+(
+    id bigint NOT NULL,
+    "Stud_id" bigint NOT NULL,
+    "Qusetion_id" bigint NOT NULL,
+    "Stud_answer" text COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "Stud_answers_pkey" PRIMARY KEY (id),
+    CONSTRAINT "fk_StAns_question" FOREIGN KEY ("Stud_id")
+        REFERENCES public."Question" (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT "fk_StAns_student" FOREIGN KEY ("Stud_id")
+        REFERENCES public."Student" (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
+
+CREATE TABLE public."Student"
+(
+    id bigint NOT NULL,
+    "User_id" bigint NOT NULL,
+    "Group_id" bigint NOT NULL,
+    CONSTRAINT "Student_pkey" PRIMARY KEY (id),
+    CONSTRAINT fk_student_group FOREIGN KEY ("Group_id")
+        REFERENCES public."Group" (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID,
+    CONSTRAINT fk_student_user FOREIGN KEY ("User_id")
+        REFERENCES public."User" ("Id") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID
+);
+
+CREATE TABLE public."Teacher"
+(
+    id bigint NOT NULL,
+    "User_id" bigint NOT NULL,
+    CONSTRAINT teacher_pkey PRIMARY KEY (id),
+    CONSTRAINT fk_teacher_user FOREIGN KEY ("User_id")
+        REFERENCES public."User" ("Id") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID
+);
+
+CREATE TABLE public."Theme"
+(
+    id bigint NOT NULL,
+    "TName" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "Theme_pkey" PRIMARY KEY (id)
+);
+
+CREATE TABLE public."User"
+(
+    "Id" bigint NOT NULL,
+    "Login" character varying(25) COLLATE pg_catalog."default" NOT NULL,
+    "Password" character varying(30) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "User_pkey" PRIMARY KEY ("Id")
+);
