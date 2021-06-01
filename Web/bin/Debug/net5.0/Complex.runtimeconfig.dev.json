@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\MAGI\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\MAGI\\.nuget\\packages"
-    ]
-  }
-}
